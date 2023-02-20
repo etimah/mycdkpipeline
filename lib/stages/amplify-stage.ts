@@ -8,12 +8,19 @@ export class AmplifyStage extends Stage {
   
   constructor(scope: Construct, id: string, props?: StageProps) {
     super(scope, id, props);
+
+    const service = new MyAmplifyStack(this, 'AmplifyStack', {
+  env: {
+    account: "746119014624",
+    region: "us-west-2",
+  }
+});
     
     // ADD AMPLIFY EXPORTED BACKEND STACK HERE
      const amplifyStack = new AmplifyExportedBackend(this, "amplifyexportedbackend", {
       path: path.resolve(__dirname, '..', 'amplify-export-mytodoapp'),
-      //amplifyEnvironment: cdk.Stack.of(this).region + cdk.Stack.of(this).account
-      amplifyEnvironment: "test"
+      amplifyEnvironment: cdk.Stack.of(this).region + cdk.Stack.of(this).account
+     // amplifyEnvironment: "dev"
     })
   }
 }
