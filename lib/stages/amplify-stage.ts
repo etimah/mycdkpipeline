@@ -12,7 +12,8 @@ export class AmplifyStage extends Stage {
     // ADD AMPLIFY EXPORTED BACKEND STACK HERE
      const amplifyStack = new AmplifyExportedBackend(this, "amplifyexportedbackend", {
       path: path.resolve(__dirname, '..', 'amplify-export-mytodoapp'),
-      amplifyEnvironment: cdk.Stack.of(this).region + cdk.Stack.of(this).account
+      //amplifyEnvironment: cdk.Stack.of(this).region + cdk.Stack.of(this).account
+      amplifyEnvironment: "test"
     })
   }
 }
