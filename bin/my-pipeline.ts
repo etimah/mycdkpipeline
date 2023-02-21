@@ -5,8 +5,6 @@ import { MyPipelineStack } from '../lib/my-pipeline-stack';
 
 const app = new cdk.App();
 
-new MyPipelineStack(app, "MyCdkPipeline")
-
 new MyPipelineStack(app, "MyCdkPipeline",{ 
   env: { 
     account: process.env.CDK_DEFAULT_ACCOUNT, 
